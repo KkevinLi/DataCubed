@@ -7,12 +7,16 @@ import json
 #The key should be placed somewhere more secure such as your env path
 client = googlemaps.Client(key = 'AIzaSyAvSVDnhX1ZXH5maxh8BT90sdj7kC36KXw')
 
+#	Write Json to file to easily view it
 def writeToFile(text):
 	f = open('test.txt','w')
 	f.write(str(results))
 	f.close()
 
-
+'''
+	returns json string in the format {distanceInMeters:X,timeInMinutes:Y,
+	path:{origin:X,destination:Y,pathTaken:[]}}
+'''
 def formatTspJson(distance,time,path,origin,destination):
 	s = {"distanceInMeters":distance,
 			"timeInMinutes":time,
@@ -21,12 +25,13 @@ def formatTspJson(distance,time,path,origin,destination):
 				"origin" : origin,
 				"destination" : destination,
 				"pathTaken" : path
-			}}
+			}
+		}
 	return json.dumps(s)
+
 '''
 	Using the directions api this function will output the 
 	optimal route from start to destination while passing through input cities
-	returns json string in the format {distanceInMeters:X,timeInMinutes:Y,pathTraveled:[Z]}
 '''
 def directionApi(origin, destination, cities):
 
@@ -43,8 +48,5 @@ def directionApi(origin, destination, cities):
 			totalDistance += route["distance"]['value']
 			totalTime += route["duration"]['value']
 			pathTraveled.append(route["end_address"])
-	print( formatTspJson(totalDistance,totalTime,pathTraveled,origin,destination) )
-	#	print ((results[0]["waypoint_order"]))
-
-
+	return formatTspJson(totalDistance,totalTime,pathTraveled,origin,destination) 
 
