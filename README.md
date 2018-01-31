@@ -1,8 +1,10 @@
 # Shortest Path For Travelling Multiple Locations
 
 Django webserver which takes a list of addresses and outputs the total distance, time and route to go through all locations.
-Utilizes Google DIrections API and implementation is in maps/libs/googlemap_util.py
-Swap out apikey with own
+
+Utilizes Google DIrections API.  Logic implementation is in maps/libs/googlemap_util.py and maps/tsp/views.py
+
+An Api Key is already provided in project. Swap it out for your own if neccesary.
 
 ## Prerequisites
 pip install -r requirements.txt  (Virtualenv is already in repo. Do : source venv/bin/activate)
