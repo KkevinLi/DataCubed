@@ -11,4 +11,5 @@ pip install -r requirements.txt  (Virtualenv is already in repo. Do : source ven
 -python manage.py test (Can modify the origin, destination and locations inside maps/tsp/tests.py)
 
 -python manage.py runserver
-    -curl -H "Content-Type: application/json" -X POST -d '{"origin" : "Adelaide,SA", "destination": "Adelaide,SA", "locations": ["Barossa+Valley,SA", "Clare,SA", "Connawarra,SA", "McLaren+Vale,SA"]}' http://localhost:8000/tsp/
+
+curl -H "Content-Type: application/json" -X POST -d '{"origin" : "Adelaide,SA", "destination": "Adelaide,SA", "locations": ["Barossa+Valley,SA", "Clare,SA", "Connawarra,SA", "McLaren+Vale,SA"]}' http://localhost:8000/tsp/
